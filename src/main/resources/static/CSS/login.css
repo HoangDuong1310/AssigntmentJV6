@@ -1,0 +1,21 @@
+body {
+    background-image:
+            url(
+            "https://kickey.net/static/images/b236e80c866b149e67159c425eac5aea.gif");
+    background-size: cover;
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    transform: scale(1.1);
+}
+
+#background-image {
+    filter: blur(6px);
+}
+
+.gradient-custom {
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(106, 17, 203, 1))
+}

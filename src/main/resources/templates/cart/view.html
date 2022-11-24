@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/cart/index :: dynamic(~{::main})}">
+<body>
+
+<main>
+    <div class="content" >
+            <section class="h-100 gradient-custom" th:fragment="shopping_cart">
+                <div class="container py-5">
+                    <div class="row d-flex justify-content-center my-4">
+                        <div class="col-md-8">
+
+                            <div class="card mb-4">
+                                <div class="card-header py-3">
+                                    <h5 class="mb-0">Cart - {{cart.count}} items</h5>
+                                </div>
+                                <div ng-repeat="item in cart.items">
+                                    <div class="card-body">
+                                        <!-- Single item -->
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                                <!-- Image -->
+                                                <div
+                                                        class="bg-image hover-overlay hover-zoom ripple rounded"
+                                                        data-mdb-ripple-color="light">
+                                                    <img
+                                                            src="/images/{{item.image}}"
+                                                            class="w-100" alt="Blue Jeans Jacket"/> <a href="#!">
+                                                    <div class="mask"
+                                                         style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                                </a>
+                                                </div>
+                                                <!-- Image -->
+                                            </div>
+
+                                            <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                                <!-- Data -->
+                                                <p>
+                                                    <strong>{{item.name}}</strong>
+                                                </p>
+                                                <p>Color: blue</p>
+                                                <p>Size: M</p>
+                                                <button type="button"
+                                                        ng-click="cart.remove(item.id)"
+                                                        class="btn btn-primary btn-sm me-1 mb-2"
+                                                        data-mdb-toggle="tooltip" title="Remove item">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-sm mb-2"
+                                                        data-mdb-toggle="tooltip" title="Move to the wish list">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <!-- Data -->
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                                <!-- Quantity -->
+                                                <div class="d-flex mb-4" style="max-width: 300px">
+                                                    <button class="btn btn-primary px-3 me-2"
+                                                            ng-click="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+
+                                                    <div class="form-outline">
+                                                        <input style="background-color: transparent" id="form1" ng-change="cart.saveToLocalStorage()" ng-model="item.qty"
+                                                               min="0" name="quantity" type="number"
+                                                               class="form-control"/> <label class="form-label"
+                                                               for="form1">{{item.qty}}</label>
+                                                    </div>
+
+                                                    <button class="btn btn-primary px-3 ms-2"
+                                                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- Quantity -->
+
+                                                <!-- Price -->
+                                                <p class="text-start text-md-center">
+                                                    <strong>{{item.price}}</strong>
+                                                </p>
+                                                <!-- Price -->
+                                            </div>
+                                        </div>
+                                        <!-- Single item -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-header py-3">
+                                <h5 class="mb-0">Summary</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li
+                                            class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                        Products <span>{{item.amount}}</span>
+                                    </li>
+                                    <li
+                                            class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                        Shipping <span>Gratis</span>
+                                    </li>
+                                    <li
+                                            class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                        <div>
+                                            <strong>Total amount</strong> <strong>
+                                            <p class="mb-0">(including VAT)</p>
+                                        </strong>
+                                        </div>
+                                        <span><strong>${{item.qty*item.price}}</strong></span>
+                                    </li>
+                                </ul>
+
+                                <!--                                <button type="button" class="btn btn-primary btn-lg btn-block"-->
+                                <!--                                        onclick="window.location.href='@'">-->
+                                <!--                                    Go to checkout</button>-->
+                                <a th:href="@{/order/checkout}" type="button"
+                                   class="btn btn-primary btn-lg btn-block">Check Out</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+</main>
+</body>
+</html>

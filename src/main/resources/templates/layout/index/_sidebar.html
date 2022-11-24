@@ -1,0 +1,41 @@
+<htm xmlns:th="http://www.thymeleaf.org">
+    <div class="sidebar__title">
+        <h1>Trang chủ</h1>
+    </div>
+    <div class="sidebar__support-wrapper">
+        <div class="support__item">
+            <img class="support__item-img"
+                 src="https://cdn.dribbble.com/users/1003944/screenshots/2375167/1-ufo-2x.gif"
+                 alt="">
+        </div>
+
+    </div>
+    <div class="sidebar__login">
+    <div class="sidebar__login" th:if="${#request.remoteUser}">
+        <button class="sidebar__login-btn">
+					<span style="text-transform: capitalize; font-weight: 800;">[[${#request.remoteUser}]]
+					</span>
+        </button>
+
+        <button class="sidebar__login-btn"
+                onclick="window.location.href='/security/logoff'">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+    </div>
+    <div class="sidebar__login" th:unless="${#request.remoteUser}">
+        <div class="sidebar__login">
+            <button class="sidebar__login-btn" onclick="window.location.href='/security/login/from'">
+                <i class="fa-solid fa-right-to-bracket"></i> <span> Đăng Nhập </span>
+            </button>
+            <button class="sidebar__login-btn" onclick="window.location.href='/Assignment/register'">
+                <i class="fa-solid fa-user-plus"></i>
+            </button>
+            <button class="sidebar__login-btn" onclick="window.location.href='/Assignment/forgot'">
+                <i class="fa-solid fa-key"></i>
+            </button>
+        </div>
+    </div>
+    </div>
+
+
+    </html>

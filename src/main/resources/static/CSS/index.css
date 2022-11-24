@@ -1,0 +1,431 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+.nav {
+	width: 77px;
+	display: flex;
+	justify-content: center;
+	background-color: #1a1a1a;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	border-right: 1px solid #2F2F2F;
+}
+
+.nav ul {
+	list-style: none;
+	text-decoration: none;
+}
+
+.nav ul .logo {
+	width: 50px;
+	margin: 30px auto 25px;
+}
+
+.nav ul .logo a img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.nav ul li a i {
+	font-size: 2rem;
+	color: #fff;
+}
+
+.nav ul .item {
+	background-color: #39393f;
+	text-align: center;
+	margin-bottom: 18px;
+	border-radius: 18px;
+}
+
+.active {
+	background-color: #7b68ee !important;
+}
+
+.nav ul .item a {
+	padding: 15px;
+	display: block;
+}
+
+/* sidebar  */
+.sidebar {
+	width: 300px;
+	background-color: #1a1a1a;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 77px;
+	color: #fff;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.sidebar__title {
+	padding: 20px;
+	font-size: 1.6rem;
+	border-bottom: 1px solid #2F2F2F;
+	display: block;
+	width: 100%;
+}
+
+.sidebar__support-wrapper {
+	margin-top: 50px;
+	height: 720px;
+	overflow-y: scroll;
+	padding-bottom: 50px;
+	width: 100%;
+	padding: 0 20px;
+}
+
+.sidebar__support-wrapper::-webkit-scrollbar-track {
+	background-color: #343A3F;
+}
+
+.sidebar__support-wrapper::-webkit-scrollbar-thumb {
+	background-color: #1a1a1a;
+}
+
+.sidebar__support-wrapper::-webkit-scrollbar {
+	width: 10px;
+	border-radius: 2px;
+	position: relative;
+	z-index: 4;
+}
+
+.support__item {
+	width: 248px;
+	height: 216px;
+	background-color: #2F2F2F;
+	position: relative;
+	border-radius: 24px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	background: linear-gradient(90deg, rgb(0 0 0/ 97%),
+	rgba(30, 38, 44, 0.8) 0%, rgba(30, 38, 44, 0)),
+	url(https://www.animegeek.com/wp-content/uploads/2021/05/Overlord-Season-4-release-date-2022-anime.jpg) no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.support__item-img {
+	width: 52px;
+	border-radius: 18px;
+	height: 52px;
+	position: absolute;
+	top: -10%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.support__item-content {
+	padding-top: 50px;
+	display: block;
+	font-size: 1.6rem;
+	padding-bottom: 10px;
+}
+
+.support__item-btn {
+	width: 148px;
+	background-color: rgb(251, 67, 67);
+	font-size: 1.5rem;
+	border: transparent;
+	color: #fff;
+	padding: 10px 0;
+	border-radius: 10px;
+	margin-top: 5px;
+}
+
+.sidebar__login {
+	margin-top: auto;
+	width: 100%;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.sidebar__login i {
+	margin-right: 5px;
+}
+
+.sidebar__login-btn {
+	border: transparent;
+	width: 100%;
+	padding: 15px 0;
+	background-color: #343A3F;
+	color: #fff;
+	font-size: 1.6rem;
+	/* border-radius: 10px 10px 0 0; */
+	cursor: pointer;
+}
+
+.sidebar__login-btn:first-child {
+	border-radius: 10px 0 0 0;
+	width: 60%;
+}
+
+.sidebar__login-btn:nth-child(2) {
+	width: 20%;
+	background-color: #2F2F2F;
+	border-right: 2px solid #404040;
+}
+
+.sidebar__login-btn:nth-child(3) {
+	width: 20%;
+	background-color: #2F2F2F;
+	border-radius: 0 10px 0 0;
+}
+
+.sidebar__login-btn:hover {
+	filter: brightness(110%);
+}
+
+/* content  */
+.content__wrap {
+	background-color: #2F2F2F;
+	padding-left: 377px;
+}
+
+.content {
+	padding: 20px;
+	min-height: 100vh;
+	height: 100%;
+}
+
+.banner__wrapper {
+	height: 520px;
+	/* height: 100%; */
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+	position: relative;
+	border-radius: 20px;
+}
+
+#tab1 {
+	background: linear-gradient(90deg, rgb(0 0 0/ 97%),
+	rgba(30, 38, 44, 0.8) 0%, rgba(30, 38, 44, 0)),
+	url(https://animehunch.com/wp-content/uploads/2022/06/Solo-Leveling.jpg) no-repeat;
+	max-height: 520px;
+	background-size: cover;
+	border-radius: 20px;
+	height: 100%;
+	padding: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: flex-end;
+	animation: fadeInOutAnimation .7s;
+	animation-timing-function: cubic-bezier(0.72, 0.7, 1, 1);
+}
+
+#tab2 {
+	background: linear-gradient(90deg, rgb(0 0 0/ 97%),
+	rgba(30, 38, 44, 0.8) 0%, rgba(30, 38, 44, 0)),
+	url(https://upload.wikimedia.org/wikipedia/vi/e/eb/Sora_no_Otoshimono_DVD_01_cover.jpg) no-repeat;
+	max-height: 520px;
+	background-size: cover;
+	border-radius: 20px;
+	height: 100%;
+	padding: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: flex-end;
+	display: none;
+	animation: fadeInOutAnimation .7s;
+	animation-timing-function: cubic-bezier(0.72, 0.7, 1, 1);
+}
+
+#tab3 {
+	background: linear-gradient(90deg, rgb(0 0 0/ 97%),
+	rgba(30, 38, 44, 0.8) 0%, rgba(30, 38, 44, 0)),
+	url(https://i0.wp.com/www.monstersandcritics.com/wp-content/uploads/2021/03/The-Devil-is-a-Part-Timer-Season-2-release-date-Hataraku-Maou-sama-Season-2-2021.jpg?resize=780%2C439&ssl=1) no-repeat;
+	max-height: 520px;
+	background-size: cover;
+	border-radius: 20px;
+	height: 100%;
+	padding: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: flex-end;
+	display: none;
+	animation: fadeInOutAnimation .7s;
+	animation-timing-function: cubic-bezier(0.72, 0.7, 1, 1);
+}
+
+#tab4 {
+	background: linear-gradient(90deg, rgb(0 0 0/ 97%),
+	rgba(30, 38, 44, 0.8) 0%, rgba(30, 38, 44, 0)),
+	url(https://gamek.mediacdn.vn/133514250583805952/2022/3/7/sword-art-online-16466411035761615694582.jpg) no-repeat;
+	max-height: 520px;
+	background-size: cover;
+	border-radius: 20px;
+	height: 100%;
+	padding: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: flex-end;
+	display: none;
+	animation: fadeInOutAnimation .7s;
+	animation-timing-function: cubic-bezier(0.72, 0.7, 1, 1);
+}
+
+#tab5 {
+	background: linear-gradient(90deg, rgb(0 0 0/ 97%),
+	rgba(30, 38, 44, 0.8) 0%, rgba(30, 38, 44, 0)),
+	url(https://www.animegeek.com/wp-content/uploads/2021/05/Overlord-Season-4-release-date-2022-anime.jpg) no-repeat;
+	max-height: 520px;
+	background-size: cover;
+	border-radius: 20px;
+	height: 100%;
+	padding: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: flex-end;
+	display: none;
+	animation: fadeInOutAnimation .7s;
+	animation-timing-function: cubic-bezier(0.72, 0.7, 1, 1);
+}
+
+.banner__content {
+	color: #fff;
+}
+
+.banner__content h2 {
+	font-size: 3.2rem;
+	margin-bottom: 10px;
+}
+
+.banner__content p {
+	font-size: 1.6rem;
+	padding-right: 170px;
+}
+
+.tab__btn {
+	background: rgba(21, 21, 21, .6901960784313725);
+	border-radius: 0;
+	width: fit-content;
+	float: right;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 5px 10px;
+	border-radius: 0 14px 14px 0;
+	width: 158px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.tab__btn .tab__item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 14px;
+}
+
+.tab__item:first-child {
+	margin-top: 5px;
+}
+
+.tab__item {
+	width: 138px;
+	height: 90px;
+	border-radius: 14px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+
+@keyframes fadeInOutAnimation {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+.card {
+	width: calc(95% / 4);
+	/* margin: 10px 15px; */
+	background-color: #101010;
+	color: #F1F1F1;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+.slider
+{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+.card a {
+	color: #F1F1F1;
+	text-decoration: none;
+}
+
+.card:hover {
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.card__top img {
+	height: 200px;
+	width: 100%;
+	border-radius: 10px 10px 0 0;
+	object-fit: cover;
+
+}
+
+.card__main {
+	padding: 20px;
+}
+
+.card__main-title {
+	font-size: 2rem;
+}
+
+.card__main-description {
+	font-size: 1.5rem;
+	margin: 8px 0;
+}
+
+.card__main-like {
+	display: flex;
+	justify-content: flex-end;
+	padding: 5px 10px;
+	font-size: 2rem;
+}
+.slick-prev
+{
+	font-size: 3rem;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 20px;
+	z-index: 99999;
+	cursor: pointer;
+}
+.slick-next
+{
+	font-size: 3rem;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 20px;
+	z-index: 99999;
+	cursor: pointer;
+}
