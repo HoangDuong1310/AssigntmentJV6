@@ -4,9 +4,8 @@
 <main>
     <div class="content">
         <div class="list__card">
-            <div th:each="x: ${items}">
 
-                    <div class="card">
+                    <div class="card" th:each="x: ${items}">
                         <a th:href="@{|/product/detail/${x.id}}">
                             <div class="card__top">
                                 <img th:src="@{|/images/${x.image}|}" />
@@ -23,7 +22,6 @@
                             </div>
                         </a>
                     </div>
-        </div>
     </div>
     </div>
 </main>

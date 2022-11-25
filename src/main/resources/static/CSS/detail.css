@@ -57,6 +57,7 @@ html {
     padding: 15px;
     display: block;
 }
+
 /* sidebar  */
 .sidebar {
     width: 300px;
@@ -70,27 +71,108 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 99;
 }
 
 .sidebar__title {
     padding: 20px;
     font-size: 1.6rem;
-    border-bottom: 1px solid #2F2F2F;
     display: block;
     width: 100%;
 }
 
-.sidebar__login {
+.sidebar__fillter-wrapper {
+    margin-top: 50px;
+    height: 720px;
+    overflow-y: scroll;
+    padding-bottom: 50px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.sidebar__support-wrapper::-webkit-scrollbar-track {
+    background-color: #343A3F;
+}
+
+.sidebar__support-wrapper::-webkit-scrollbar-thumb {
+    background-color: #1a1a1a;
+}
+
+.sidebar__support-wrapper::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 2px;
+    position: relative;
+    z-index: 4;
+}
+
+.event__fillter {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.event__fillter select, .categories__fillter select {
+    width: 100%;
+    min-height: 46px;
+    border-radius: 14px;
+    background-color: transparent;
+    border: 2px solid #F2F2F2;
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 10px;
+    outline: none;
+    display: block;
+}
+
+.categories__fillter select {
+    position: relative;
+}
+
+.over-select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #101010;
+    width: 100%;
+    height: 100%;
+}
+
+.checkboxes label, .checkboxes__categories label {
+    width: 100%;
+    min-height: 46px;
+    font-size: 1.6rem;
+    outline: none;
+    /* display: block; */
+    text-align: left;
     display: flex;
-    margin-top: auto;
+    align-items: center;
+}
+
+.checkboxes .checkbox__wrap, .checkboxes__categories .checkbox__wrap {
+    border-radius: 14px;
+    background-color: transparent;
+    border: 2px solid #F2F2F2;
+    border-top: 1px;
+    color: #fff;
+    padding: 10px;
+}
+
+.checkboxes label input[type="checkbox"], .checkboxes__categories label input[type="checkbox"]
+{
+    margin-right: 10px;
+}
+
+.event__fillter option {
     width: 100%;
 }
 
-.sidebar__login-btn:nth-child(2) {
-    width: 40%;
-    background-color: #2F2F2F;
-    border-radius: 0 10px 0 0;
+.sidebar__login {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .sidebar__login i {
@@ -108,8 +190,171 @@ html {
     cursor: pointer;
 }
 
+.sidebar__login-btn:first-child {
+    border-radius: 10px 0 0 0;
+    width: 60%;
+}
+
+.sidebar__login-btn:nth-child(2) {
+    width: 40%;
+    background-color: #2F2F2F;
+    border-radius: 0 10px 0 0;
+}
+
 .sidebar__login-btn:hover {
     filter: brightness(110%);
+}
+
+/* content  */
+.content__wrap {
+    background-color: #2F2F2F;
+    padding-left: 377px;
+    min-height: 100vh;
+}
+
+.content {
+    padding: 20px;
+}
+
+.sidebar__search {
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.sidebar__search .search {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: #f1f1f1;
+    font-size: 1.5rem;
+    border-radius: 14px;
+}
+
+.list__card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card {
+    width: calc(92%/ 4);
+    margin: 10px 10px;
+    background-color: #101010;
+    color: #F1F1F1;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.card a {
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+.card:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.card__top img {
+    height: 200px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+.card__main {
+    padding: 20px;
+    margin-bottom: 20px
+}
+
+.card__main-title {
+    font-size: 2rem;
+}
+
+.card__main-description {
+    font-size: 1.5rem;
+    margin: 8px 0;
+}
+
+.card__main-like {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px;
+    font-size: 2rem;
+}
+
+.checkboxes, .checkboxes__categories {
+    display: none;
+}
+
+.btn__add {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn__add button {
+    width: 100%;
+    min-height: 46px;
+    border-radius: 14px;
+    background-color: transparent;
+    border: 2px solid #F2F2F2;
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 10px;
+    outline: none;
+    display: block;
+    cursor: pointer;
+}
+
+.option-item {
+    color: #000;
+}
+
+.card__delete {
+    position: relative;
+}
+
+.block__delete {
+    filter: brightness(0.5) blur(3px);
+}
+
+.text__delete {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    position: absolute;
+    z-index: 999999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.btn__add-cart {
+    padding: 7px 10px;
+    border: transparent;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    position: absolute;
+    bottom: 10px;
+    right: 16px;
+    background: #fff;
+    color: #000 !important;
+}
+
+.pagination {
+    margin-left: 40%;
+    background-color: white;
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
 }
 /* content  */
 .content__wrap {

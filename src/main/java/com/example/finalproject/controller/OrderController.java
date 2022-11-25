@@ -25,7 +25,7 @@ public class OrderController {
     @GetMapping("/list")
     public String list(Model model, HttpServletRequest request) {
         String username = request.getRemoteUser();
-        model.addAttribute("order" , orderService.findByUsername(username));
+        model.addAttribute("orders" , orderService.findByUsername(username));
         return "order/list";
     }
 

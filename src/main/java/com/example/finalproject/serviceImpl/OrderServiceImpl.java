@@ -42,4 +42,10 @@ public class OrderServiceImpl implements OrderService {
     public OrderEntity findById(Long id) {
         return orderDAO.findById(id).get();
     }
+
+    @Override
+    public List<OrderEntity> findByUsername(String username) {
+
+        return orderDAO.findByUsername(username);
+    }
 }

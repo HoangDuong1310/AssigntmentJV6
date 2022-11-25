@@ -9,6 +9,11 @@
                     onclick="window.location.href='/AssignmentJava5/admin/insert'">Thêm
             </button>
         </div>
+        <div class="btn__add">
+            <button
+                    onclick="window.location.href='/order/list'">Your Order
+            </button>
+        </div>
         <form action="/Assignment/admin/find" method="POST">
             <div class="sidebar__search">
                 <input type="text" name="name" placeholder="Tìm kiếm theo tên"
@@ -21,6 +26,7 @@
             <div class="btn__add" style="margin-top: 5px;">
                 <button>Lọc</button>
             </div>
+
             <div class="event__fillter">
                 <div th:replace="/layout/product/_category"></div>
             </div>
