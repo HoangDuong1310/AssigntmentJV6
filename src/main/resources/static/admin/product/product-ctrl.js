@@ -24,7 +24,7 @@ app.controller("product-ctrl", function ($scope, $http) {
     $scope.reset = function () {
         $scope.form = {
             createDate: new Date,
-            image: '',
+            image: 'No_Image_Available.jpg',
             available: true
         };
     }

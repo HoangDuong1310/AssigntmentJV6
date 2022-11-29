@@ -27,7 +27,7 @@ public class ProductRestController {
 
         return productService.crate(product);
     }
-    @PostMapping("{id}")
+    @PutMapping("{id}")
     public ProductEntity update(@PathVariable("id") Integer id , @RequestBody ProductEntity product) {
         return productService.upddate(product);
     }
