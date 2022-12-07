@@ -8,4 +8,5 @@ public interface AccountService {
     AccountEntity findById(String username);
     List<AccountEntity> findAll();
     List<AccountEntity> getAministrators();
+    AccountEntity save(AccountEntity account);
 }

@@ -5,8 +5,10 @@ import com.example.finalproject.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -48,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/security/login/from")
                 .loginProcessingUrl("/security/login")
-                    .defaultSuccessUrl("/security/login/sussess", false)
+                    .defaultSuccessUrl("/security/login/success", false)
                 .failureUrl("/security/login/error");
 
         http.rememberMe()
@@ -60,11 +62,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout()
                 .logoutUrl("/security/logoff")
 
-                .logoutSuccessUrl("/security/logoff/sussess");
+                .logoutSuccessUrl("/security/logoff/success");
+
+        //OAuth2 - Dang nhap mang xa hoi
+        http.oauth2Login()
+                .loginPage("/security/login/form")
+                .defaultSuccessUrl("/oauth2/login/success", true)
+                .failureUrl("/security/login/error")
+                .authorizationEndpoint()
+                .baseUri("/oauth2/authorization");
     }
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
     }
 }
 
