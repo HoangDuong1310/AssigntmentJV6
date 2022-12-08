@@ -28,4 +28,9 @@ public class AuthorityRestController {
     public Authority post(@RequestBody Authority auth){
         return authorityService.create(auth);
     }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") Integer id){
+        authorityService.delete(id);
+    }
 }

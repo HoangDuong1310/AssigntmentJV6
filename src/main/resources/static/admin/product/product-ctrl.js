@@ -38,6 +38,7 @@ app.controller("product-ctrl", function ($scope, $http) {
     //them san pham moi
     $scope.create = function () {
         var item = angular.copy($scope.form);
+        console.log(item);
         $http.post(`/rest/products`, item).then(resp => {
             resp.data.createDate = new Date(resp.data.createDate)
             $scope.items.push(resp.data);
@@ -54,7 +55,7 @@ app.controller("product-ctrl", function ($scope, $http) {
     $scope.update = function () {
         var item = angular.copy($scope.form);
         $http.put(`/rest/products/${item.id}`, item).then(resp => {
-            var index = $scope.items.findIndex(p => p.id == item.id);
+            var index = $scope.items.findIndex(p => p.id === item.id);
             $scope.items[index] = item;
             alert("cap nhap thanh cong")
         }).catch(err => {

@@ -179,7 +179,7 @@
       <div class="form__title">
         <span>Tạo tài khoản mới</span>
       </div>
-      <p class="error">${massage}${errorPass}</p>
+      <p class="error" th:errors="*{fullname}"></p>
       <div class="form__group">
         <input type="text" th:field="*{fullname}" placeholder="Fullname"
                  class="input-controll"/>

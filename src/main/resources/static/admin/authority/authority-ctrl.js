@@ -21,33 +21,36 @@ app.controller("authority-ctrl", function ($scope, $http, $location) {
             $location.path("/unauthorized");
         })
     }
-    $scope.authority_of = function (acc, role) {
-        if ($scope.authorities) {
-            return $scope.authorities.find(ur => (ur.account.username == acc.username && ur.role.id == role.id));
-
+    $scope.authority_of= function(acc,role){
+        if($scope.authorities){
+            return $scope.authorities.find(ur => ur.account.username == acc.username && ur.role.id == role.id);
         }
     }
-    $scope.authority_changed = function (acc, role) {
+    // $scope.authority_of = function (acc, role) {
+    //     if ($scope.authorities) {
+    //         return $scope.authorities.find(ur => (ur.account.username == acc.username && ur.role.id == role.id));
+    //
+    //     }
+    //  }
+    $scope.authority_changed = function(acc, role){
         var authority = $scope.authority_of(acc, role);
-        if (authority) {
+        if(authority){
             $scope.revoke_authority(authority);
-        } else {
-            authority = {account: acc, role: role};
+        }else{
+            authority = {account: acc, role};
             $scope.grant_authority(authority);
         }
     }
-    //xoa authority
-    $scope.revoke_authority = function (authority) {
-        $http.delete(`/rest/authorities/${authority.id}`).then(resp => {
-                var index = $scope.authorities.findIndex(a => a.id == authority.id);
-                $scope.authorities.splice(index, 1);
-                alert("thu hoi quyen thanh cong");
-            }
-        ).catch(err => {
-            alert("Thu hoi quyen that bai");
-            console.log("err", err);
-        })
-    }
+    // $scope.authority_changed = function (acc, role) {
+    //     var authority = $scope.authority_of(acc, role);
+    //     if (authority) {
+    //         $scope.revoke_authority(authority);
+    //     } else {
+    //         authority = {account: acc, role: role};
+    //         $scope.grant_authority(authority);
+    //     }
+    // }
+
 
     //them moi auth
     $scope.grant_authority = function (authority) {
@@ -57,6 +60,17 @@ app.controller("authority-ctrl", function ($scope, $http, $location) {
         }).catch(err => {
             alert("cap quyen that bai");
             console.log("err", err);
+        })
+    }
+    //xoa authority
+    $scope.revoke_authority = function(authority){
+        $http.delete(`/rest/authorities/${authority.id}`).then(resp => {
+            var index = $scope.authorities.findIndex(a => a.id == authority.id);
+            $scope.authorities.splice(index, 1);
+            alert("Thu hồi quyền sử dụng thành công");
+        }).catch(error => {
+            alert("Thu hồi quyền sử dụng thất bại");
+            console.log("Error", error);
         })
     }
 
