@@ -3,10 +3,11 @@
 
 <main>
     <div class="content">
-        <div class="list__card">
 
-                    <div class="card" th:each="x: ${items}">
-                        <a th:href="@{|/product/detail/${x.id}}">
+        <div class="list__card">
+            <div th:each="x: ${items}">
+                    <div class="card" th:if="${x.available == true}">
+                        <a th:href="@{|/product/detail/${x.id}}" >
                             <div class="card__top">
                                 <img th:src="@{|/images/${x.image}|}" />
                             </div>
@@ -22,6 +23,24 @@
                             </div>
                         </a>
                     </div>
+<!------------------------------------------>
+                <div class="card card__delete" th:if="${x.available == false}">
+                    <div class="text__delete">Hết Hàng</div>
+                    <div class="block__delete">
+                        <a th:href="@{|/product/detail/${x.id}}">
+                            <div class="card__top">
+                                <img th:src="@{|/images/${x.image}|}" />
+                            </div>
+                            <div class="card__main">
+                                <div id="js-title" class="card__main-title">[[${x.name}]]</div>
+                                <div class="card__main-like">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
     </div>
     </div>
 </main>

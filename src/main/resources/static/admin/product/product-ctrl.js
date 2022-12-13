@@ -66,17 +66,28 @@ app.controller("product-ctrl", function ($scope, $http) {
 
     //xoa sam pham
     $scope.delete = function (item) {
-        var item = angular.copy($scope.form);
-        $http.delete(`/rest/products/${item.id}`).then(resp => {
+        var item = $scope.items.find(or => or.id === item.id);
+        if(item.available===false){
+            item.available=true;
+        }else if(item.available===true)
+        {
+            item.available=false;
+        }
+        $http.put(`/rest/products/delete/${item.id}` , item).then(resp => {
             var index = $scope.items.findIndex(p => p.id == item.id);
-            $scope.items.splice(index, 1);
             $scope.reset();
-            alert("Xoa thanh cong")
+            if(  item.available===true){
+                alert("Phục hồi sản phẩm thành công!");
+            }else{
+                alert("Xóa sản phẩm thành công!");
+            }
         }).catch(err => {
-            alert("Xoa that bai")
+            alert("loi")
             console.log("Err", err);
         });
     }
+
+
     //upload hinh
     $scope.imageChanged = function (files) {
         var data = new FormData();

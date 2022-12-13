@@ -31,9 +31,9 @@ public class ProductRestController {
     public ProductEntity update(@PathVariable("id") Integer id , @RequestBody ProductEntity product) {
         return productService.upddate(product);
     }
-    @DeleteMapping("{id}")
-    public void delete(@PathVariable("id") Integer id ) {
-         productService.delete(id);
+    @PutMapping("/delete/{id}")
+    public ProductEntity delete(@PathVariable("id") Integer id , @RequestBody ProductEntity product) {
+        return productService.upddate(product);
     }
 
 }

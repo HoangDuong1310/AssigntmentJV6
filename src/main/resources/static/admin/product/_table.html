@@ -25,8 +25,9 @@
 
             <td>
                 <div class="btn-group btn-group-xs">
-                    <button ng-click="edit(item)" class="btn btn-warning glyphicon-edit"></button>
-                    <button ng-click="delete(form)"class="btn btn-warning glyphicon-trash"></button>
+                    <button ng-click="edit(item)" class="btn btn-warning glyphicon glyphicon-pencil"></button>
+                    <button ng-click="delete(item)" ng-if="item.available == true" class="btn btn-danger glyphicon glyphicon-trash "></button>
+                    <button ng-click="delete(item)" ng-if="item.available == false" class="btn btn-success glyphicon glyphicon-refresh" ></button>
                 </div>
             </td>
         </tr>
