@@ -49,13 +49,14 @@ public class RegisterController {
         }
         System.out.println("loi1");
 
-//        List<AccountEntity> list = accountService.findAll();
-//        for (AccountEntity a : list) {
-//            if (a.getUsername().equals(account.getUsername())) {
-//                req.setAttribute("error", "Tai Khoan Da Ton Tai");
-//                return "security/register";
-//            }
-//        }
+        List<AccountEntity> list = accountService.findAll();
+        for (AccountEntity a : list) {
+            System.out.println("loi");
+            if (a.getUsername().equals(account.getUsername())) {
+                req.setAttribute("error", "Tai Khoan Da Ton Tai");
+                return "security/register";
+            }
+        }
 
 
         AccountEntity acc = new AccountEntity();

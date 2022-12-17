@@ -13,11 +13,11 @@
         <div class="row">
             <div class="form-group col-sm-6">
                 <div>Name</div>
-                <input ng-model="form.name" class="form-control" >
+                <input ng-model="form.name" class="form-control" id="name" >
             </div>
             <div class="form-group col-sm-6">
                 <div>Price</div>
-                <input ng-model="form.price" class="form-control" >
+                <input ng-model="form.price" class="form-control" id="price">
             </div>
 
         </div>
@@ -43,10 +43,10 @@
                 <div>Avalible</div>
                 <div class="form-control">
                     <label class="radio-inline">
-                        <input ng-model="form.available" ng-value="true" name="available" type="radio" > Yes
+                        <input id="av1" ng-model="form.available" ng-value="true" name="available" type="radio" > Yes
                     </label>
                     <label class="radio-inline">
-                        <input ng-model="form.available" ng-value="false" name="available" type="radio"> No
+                        <input id="av2" ng-model="form.available" ng-value="false" name="available" type="radio"> No
                     </label>
                 </div>
             </div>

@@ -5,8 +5,8 @@
     <div class="content">
 
         <div class="list__card">
-            <div th:each="x: ${items}">
-                    <div class="card" th:if="${x.available == true}">
+            <div class="card" th:each="x: ${items}" >
+                    <div  th:if="${x.available == true}">
                         <a th:href="@{|/product/detail/${x.id}}" >
                             <div class="card__top">
                                 <img th:src="@{|/images/${x.image}|}" />
@@ -24,7 +24,7 @@
                         </a>
                     </div>
 <!------------------------------------------>
-                <div class="card card__delete" th:if="${x.available == false}">
+                <div class="card__delete" th:if="${x.available == false}">
                     <div class="text__delete">Hết Hàng</div>
                     <div class="block__delete">
                         <a th:href="@{|/product/detail/${x.id}}">

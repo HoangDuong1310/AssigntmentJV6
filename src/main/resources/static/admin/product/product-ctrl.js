@@ -25,9 +25,13 @@ app.controller("product-ctrl", function ($scope, $http) {
         $scope.form = {
             createDate: new Date,
             image: 'No_Image_Available.jpg',
-            available: true
+            available: true,
+            category:{
+                id: '1000',
+            },
         };
     }
+    $scope.reset();
 
     //hien thi len form
     $scope.edit = function (item) {
@@ -37,6 +41,21 @@ app.controller("product-ctrl", function ($scope, $http) {
 
     //them san pham moi
     $scope.create = function () {
+        var a =  document.getElementById('name').value;
+        var b = document.getElementById('price').value;
+        var d = document.getElementById('category').value;
+        var av1 = document.getElementById('av1').value;
+        var av2 = document.getElementById('av2').value;
+
+        if (a == "" || b == "" ||  d == "" || av1 == ""){
+            Swal.fire('Không được để trống các trường thông tin')
+            return;
+        }
+        if (av1 == null && av2 == null )
+        {
+            Swal.fire('Không được để trống các trường thông tin')
+            return;
+        }
         var item = angular.copy($scope.form);
         console.log(item);
         $http.post(`/rest/products`, item).then(resp => {
@@ -53,11 +72,30 @@ app.controller("product-ctrl", function ($scope, $http) {
 
     //cap nhap san pham
     $scope.update = function () {
+        var a =  document.getElementById('name').value;
+        var b = document.getElementById('price').value;
+        var d = document.getElementById('category').value;
+        var av1 = document.getElementById('av1').value;
+        var av2 = document.getElementById('av2').value;
+
+        if (a == "" || b == "" || d == "" || av1 == ""){
+            Swal.fire('Không được để trống các trường thông tin')
+            return;
+        }
+        if (av1 == null && av2 == null )
+        {
+            Swal.fire('Không được để trống các trường thông tin')
+            return;
+        }
         var item = angular.copy($scope.form);
         $http.put(`/rest/products/${item.id}`, item).then(resp => {
             var index = $scope.items.findIndex(p => p.id === item.id);
             $scope.items[index] = item;
-            alert("cap nhap thanh cong")
+            Swal.fire({
+                icon: 'success',
+                title: 'Cập Nhập Thành Công',
+                footer: '<a href="">Why do I have this issue?</a>'
+            })
         }).catch(err => {
             alert("Cap nhap that bai")
             console.log("Err", err);
@@ -66,6 +104,7 @@ app.controller("product-ctrl", function ($scope, $http) {
 
     //xoa sam pham
     $scope.delete = function (item) {
+
         var item = $scope.items.find(or => or.id === item.id);
         if(item.available===false){
             item.available=true;
@@ -76,10 +115,10 @@ app.controller("product-ctrl", function ($scope, $http) {
         $http.put(`/rest/products/delete/${item.id}` , item).then(resp => {
             var index = $scope.items.findIndex(p => p.id == item.id);
             $scope.reset();
-            if(  item.available===true){
-                alert("Phục hồi sản phẩm thành công!");
+            if(item.available===true){
+                Swal.fire('Phục hồi sản phẩm thành công!');
             }else{
-                alert("Xóa sản phẩm thành công!");
+                Swal.fire('Xoá hồi sản phẩm thành công!');
             }
         }).catch(err => {
             alert("loi")
@@ -133,6 +172,7 @@ app.controller("product-ctrl", function ($scope, $http) {
             this.page = this.count - 1;
         }
     }
+
 })
 
 
